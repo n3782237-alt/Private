@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PixelForge Studio</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="brandmark">P</div><span>PixelForge <b>Studio</b></span></div>
+  <nav><button class="menu" id="newBtn">Файл</button><button class="menu" id="undoBtn">Отменить</button><button class="menu" id="redoBtn">Повторить</button><button class="menu" id="exportBtn">Экспорт PNG</button></nav>
+  <div class="topright"><span class="status-dot"></span> Локальный проект</div>
+</header>
+<div class="workspace">
+  <aside class="tools">
+    <div class="toolhead">ИНСТРУМЕНТЫ</div>
+    <button class="tool active" data-tool="brush" title="Кисть">✎<small>Кисть</small></button>
+    <button class="tool" data-tool="eraser" title="Ластик">◩<small>Ластик</small></button>
+    <button class="tool" data-tool="line" title="Линия">／<small>Линия</small></button>
+    <button class="tool" data-tool="rect" title="Прямоугольник">▱<small>Фигура</small></button>
+    <button class="tool" data-tool="text" title="Текст">T<small>Текст</small></button>
+    <button class="tool" data-tool="move" title="Перемещение">✥<small>Рука</small></button>
+    <div class="toolhead">ЦВЕТ</div><input id="color" type="color" value="#e7eaf0"><label>Размер</label><input id="size" type="range" min="1" max="80" value="12">
+  </aside>
+  <main class="center">
+    <div class="options"><span id="toolName">Кисть</span><span>Размер <b id="sizeVal">12</b> px</span><span>Масштаб 100%</span></div>
+    <div class="canvas-wrap"><div class="canvas-frame"><canvas id="art" width="1100" height="700"></canvas></div></div>
+    <div class="bottomline">PixelForge Studio · Холст 1100 × 700 px</div>
+  </main>
+  <aside class="rightpanel">
+    <section class="panel"><div class="paneltitle">СЛОИ <button id="addLayer">＋</button></div><div id="layers" class="layers"></div></section>
+    <section class="panel props"><div class="paneltitle">СВОЙСТВА</div><label>Непрозрачность</label><input id="opacity" type="range" min="0" max="100" value="100"><div class="hint">Выберите слой, чтобы изменить его прозрачность.</div></section>
+    <section class="panel ai">
+      <div class="ai-title"><span class="spark">✦</span><div><b>Pixel AI</b><small>Творческий помощник</small></div><span class="beta">AI</span></div>
+      <p>Опишите, что хотите создать или как улучшить изображение.</p>
+      <textarea id="prompt" placeholder="Например: предложи палитру для постера в стиле ретрофутуризм..."></textarea>
+      <button class="ai-btn" id="askAI">✦ Спросить помощника</button>
+      <div id="aiReply" class="ai-reply">Помощник готов. Для ответов подключите совместимый AI API в настройках проекта.</div>
+      <details><summary>Настройка AI-подключения</summary><label>Совместимый API URL</label><input id="apiUrl" placeholder="https://api.openai.com/v1/chat/completions"><label>Модель</label><input id="model" value="gpt-4o-mini"><label>API-ключ</label><input id="apiKey" type="password" placeholder="Вставьте свой ключ"><small>Ключ хранится только в текущем окне и не записывается в проект. Не используйте ключи на чужих компьютерах.</small></details>
+    </section>
+  </aside>
+</div>
+<script src="renderer.js"></script>
+</body></html>
